@@ -1,0 +1,17 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: greeting
+  image: docker:latest
+  volumes:
+    - name: docker_sock
+      path: /var/run/docker.sock
+  commands:
+  - echo "Hello"
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
